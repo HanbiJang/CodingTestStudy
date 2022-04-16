@@ -32,9 +32,9 @@
 *.app
 
 # 폴더 제외
-/[Inflean]Lecture/Lecture/CPS_solution/*
-/[Inflean]Lecture/Lecture/CPS_solution/CPS_test/*
-/[Inflean]Lecture/Lecture/CPS_solution/CPS_test/Section5/*
+/Inflean_Lecture/Lecture/CPS_solution/*
+/Inflean_Lecture/Lecture/CPS_solution/CPS_test/*
+/Inflean_Lecture/Lecture/CPS_solution/CPS_test/Section5/*
 
 # 확장자 제외
 *.dev
@@ -45,7 +45,7 @@
 !*.cpp
 
 # 폴더 포함
-!/[Inflean]Lecture/Lecture/
-/[Inflean]Lecture/Lecture/*
-!/[Inflean]Lecture/Lecture/[MySolution]/
+!/Inflean_Lecture/Lecture/
+/Inflean_Lecture/Lecture/*
+!/Inflean_Lecture/Lecture/MySolution/
 
