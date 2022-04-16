@@ -40,6 +40,7 @@
 *.dev
 *.layout
 *.win
+*.pdf
 
 # 확장자 포함
 !*.cpp
