@@ -14,7 +14,7 @@ int main() {
 	}
 	
 	int i,j;
-	// selection sort
+	// insertion sort
 	int tmp; 
 	for(i=1; i<N; i++){
 		tmp =  arr[i]; // save i index element in tmp
