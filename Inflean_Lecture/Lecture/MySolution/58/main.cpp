@@ -10,8 +10,8 @@ void  re(int i){
 	else{
 		// printf("%d ",i); // 전위 순회 
 		re(i*2); 
-		// printf("%d ",i); // 위중 순회 
-		re(i*2+1);
+		// printf("%d ",i); // 중위 순회 
+		re(i*2+1); 
 		printf("%d ",i); // 후위 순회 
 	}
 } 
