@@ -35,7 +35,7 @@ int main() {
 		map[b].push_back(city(a,c));
 	}
 	
-	pQ.push(city(1,0));
+	pQ.push(city(1,0)); //시작점 
 	while(!pQ.empty()){
 		city tmp = pQ.top(); //***현재 상황에서 가장 코스트가 작은 애가 나옴(최소힙) ***
 		pQ.pop();
