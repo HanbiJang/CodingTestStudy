@@ -18,13 +18,16 @@ int getDist(int x, int y, int x2, int y2){
 void dfs(int r, int start){
 	
 	//ch에서 M개를 골랐음
-	if(r>=M){
+	if(r==M){
 		int sum = 0;
-		int min_ = 2147000000; 
-		//M개 고른 피자집들 각각에 대해 가정집들과의 가장 짧은 거리 구하기 
+		
+		//M개 고른 피자집들 각각에 대해 가정집들과의 가장 짧은 거리 구하기
+		//***ch에서 꺼내기***
 		for(int i=0; i<hs.size(); i++){
-			for(int j=0; j<pz.size();j++){
-				int dist = getDist(pz[j].first, pz[j].second, hs[i].first, hs[i].second);
+			int min_ = 2147000000; //i번째 가정집에 대한 피자집까지의 최소거리 
+
+			for(int j=0;j<M;j++){
+				int dist = getDist(pz[ch[j]].first, pz[ch[j]].second, hs[i].first, hs[i].second);
 				if(dist<min_) min_ = dist;
 			}
 			sum += min_; //합하기 
@@ -37,7 +40,7 @@ void dfs(int r, int start){
 	else{
 		//start 번째 선택부터 피자 가게를 정함 
 		for(int i=start; i<pz.size(); i++){
-			ch[r]=i;
+			ch[r]=i; //i: 피자 가게 번호  
 			dfs(r+1, i+1);
 		} 	
 		
@@ -48,8 +51,8 @@ void dfs(int r, int start){
 int main() {
 	//input 
 	scanf("%d %d", &N, &M);
-	for(int i=0; i<N; i++){//행 
-		for(int j=0; j<N; j++){//열
+	for(int i=0; i<N; i++){//행0부터 시작 
+		for(int j=0; j<N; j++){//열 0부터 시작 
 			int n;
 			scanf("%d", &n);
 			
