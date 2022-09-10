@@ -21,45 +21,48 @@ int main() {
 	}
 	
 	//bfs
-	//섬 => 확인하면 2
-	//바다 => 확인하면 3 
-	q.push(make_pair(1,1));
-	map[1][1] = map[1][1]==1? 2:3; //확인함 
-	while(!q.empty()){
-		pair<int,int> tmp = q.front();
-		q.pop();
-		
-		int x = tmp.first;
-		int y = tmp.second;
-		
-		//방문처리
-		if(map[x][y]==0) map[x][y]=3;
-		else if(map[x][y]==1) map[x][y]=2; 
-		  
-		bool isNew = false; 
-		for(int i=0; i<8; i++){
-			int nextx = x+dirx[i];
-			int nexty = y+diry[i];
+	
+	for(int i=1; i<=N; i++){
+		for(int j=1; j<=N; j++){
 			
-			if(nextx >=1 && nextx <=N && nexty>=1 && nexty<=N){
-				if(map[nextx][nexty]<2){ //1또는 0(미확인) 
-					q.push(make_pair(nextx, nexty));
+			//섬발견 => 이어지는 섬을 다 0으로 만들기 (방문) 
+			if(map[i][j]==1){
+				
+				q.push(make_pair(i,j));
+				map[i][j] = 0;
+				
+				while(!q.empty()){
+					pair<int,int> tmp = q.front();
+					q.pop();
+					
+					int x = tmp.first;
+					int y = tmp.second;
+		
+					for(int i=0; i<8; i++){
+						int nextx = x+dirx[i];
+						int nexty = y+diry[i];
+						
+						if(nextx >=1 && nextx <=N && nexty>=1 && nexty<=N){
+							if(map[nextx][nexty]==1){ //섬일때 (미확인) 
+								map[nextx][nexty] = 0; //방문 처리 
+								q.push(make_pair(nextx, nexty));
+							}
+						
+						}									
+					}				
 				}
-			
-				//지금 확인한 곳이 바다  
-				if(map[x][y]==3 && map[nextx][nexty]==1){//[1] 새섬을 찾음 						
-					isNew = true;				
-				}	
+				
+				cnt++;
 			}
-									
-		}		
-		if(isNew) cnt++;
-			
-		
+			//바다 발견 => 넘어가기 
+			else{
+				continue;
+			}
+
+		}
 	}
 	
 	printf("%d", cnt);
-	
 	
 	return 0;
 }
