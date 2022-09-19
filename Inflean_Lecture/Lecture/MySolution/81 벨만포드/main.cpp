@@ -38,7 +38,7 @@ int main() {
 	
 	ch[start] = 0;
 	
-	for(int i=1; i<=N-1; i++){ //간선 갯수 
+	for(int i=1; i<=N-1; i++){ //i번 만에 가는 간선 갯수 
 		
 		for(int j=1; j<=M;j++){ //***모든 간선들에 대해 실행 
 			

@@ -51,7 +51,9 @@ int main() {
 		if(a!=b) U(a,b);		
 	}
 	
-	
+	for(int i=1; i<=N;i++){
+		printf("%d",arr[i]);
+	}
 	//같은 집합인지 확인 
 	int a,b;
 	scanf("%d %d", &a, &b);
