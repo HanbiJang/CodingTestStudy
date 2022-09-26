@@ -40,7 +40,6 @@ int main(){
 		int cury = q.front().second;
 		q.pop();
 		
-		printf("%d %d \n",curx, cury);
 		while(!q.empty()) q.pop(); //큐 청소 
 		 
 		for(int i=0; i<4; i++){ //2. 현재 방향 기준 왼쪽 방향~탐색
