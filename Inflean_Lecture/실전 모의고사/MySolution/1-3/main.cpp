@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <stack>
 
 using namespace std;
 
@@ -11,24 +11,27 @@ int main() {
 	
 	//input
 	scanf("%d",&N);	
-	for(int i=0; i<N; i++){
+	for(int i=1; i<=N; i++){
 		cin>>arr[i];
 	}
 	
-	//최초의 방해 학생
-	printf("0 ");
-	for(int i=1; i<N; i++){
-		for(int j=i-1; j>=0; j--){
-			if(arr[i]<arr[j]){
-
-				printf("%d ",j+1);
-				break;	
-			}
-			else if(j==0){
-				printf("0 ");
-			}
+	//방해학생 찾기 
+	stack<int> s; //번호를 넣음
+	 
+	arr[0]=0; //무조건 작음
+	s.push(0); 
+	 
+	for(int i=1; i<=N; i++){
+		//작은 애들 삭제 
+		while(!s.empty() && arr[s.top()]<=arr[i]){
+			s.pop();
 		}
-	} 
+		if(!s.empty()) cout<<s.top()<<" "; //방해학생 (번호) 출력 
+		else cout<<"0 ";
+		s.push(i);	
+	}
+	
+	
 	
 	return 0;
 }

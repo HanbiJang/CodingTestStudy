@@ -10,7 +10,7 @@ int ch[17];
 int arr1[17];
 int arr2[17];
 
-void re(int n){
+void re(int n, int start){
 	
 	if(n==N/2){ //흰돌인 선수 구함 
 		int w=0;
@@ -24,14 +24,15 @@ void re(int n){
 		if(min_> gap){
 			min_ = gap;
 		}
-		 
+		return; 
 	}
 	else{
 		
-		for(int i=n; i<N; i++){ //*** 
+		for(int i=start; i<N; i++){ //***조합  
 			if(ch[i]==0){
 				ch[i]=1;
-				re(n+1);
+				cout<< i<< " ";
+				re(n+1, i+1); //***start 하는 수를 i+1부터 
 				ch[i]=0;
 			}			
 		}
@@ -50,7 +51,7 @@ int main() {
 	}
 	
 	//흰돌 출전 선수 뽑기 
-	re(0);
+	re(0,0);
 	
 	
 	//output
