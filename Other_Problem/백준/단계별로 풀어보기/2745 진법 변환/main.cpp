@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <stack>
 
 using namespace std;
 
@@ -9,23 +10,30 @@ int main(){
 	ios_base::sync_with_stdio(false);
 
 	int B;
-	string N;
-	cin>>N>>B;
+	int N;
+	cin>>N>>B; //10진법수 N, 진법 B 
 	
 	int ans=0;
-	int bb=1;
-
-	for(int i=N.length()-1; i>=0; i--){
-		if(N[i]>='0' && N[i]<='9'){			
-			ans += (N[i]-'0')*bb;
+	stack<int> st;
+	
+	//진법 변환
+	for(int i=N; i>0; i/=B){
+		st.push(i%B);
+	} 
+	
+	while(!st.empty()){
+		int newOne = st.top();
+		st.pop();
+		if(newOne>=10){
+			cout<<(char)(newOne-10+'A');
 		}
 		else{
-			ans += (N[i]-'A'+10)*bb;
+			cout<<newOne;
 		}
-		bb*=B;
+		
 	}
 	
-	cout<<ans;
+	
 	
 	return 0;
 }
