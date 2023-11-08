@@ -4,11 +4,9 @@ using namespace std;
 
 int main(){
 	
-	ios_base::sync_with_stdio(false);
-
 	 //두 수의 최소공배수를 구하라
 	 int t;
-	 cin>>t;
+	 scanf("%d",&t);
 	 
 	 for(int i=0; i<t; i++){
 	 	int a,b;
