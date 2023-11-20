@@ -16,7 +16,7 @@ int main(){
 		cin>>a;
 		q.push(make_pair(i,a));
 	}
-	
+	//dequeue 안 쓰는 방법으로 풀기 *** 회전 성질(규칙성) 이용 
 	while(!q.empty()){
 		pair<int,int> nextThing = q.front();
 		q.pop(); //풍선 삭제 
