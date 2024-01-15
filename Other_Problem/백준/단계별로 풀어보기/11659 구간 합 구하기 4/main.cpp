@@ -20,7 +20,6 @@ int main(){
 		//누적합 만들기 
 		dp[i] = dp[i-1] + dp[i];
 	}
-	cout<<endl;
 	
 	for(int i=0; i<M; i++){
 		int a,b;
